@@ -8,22 +8,11 @@ import java.util.*;
  */
 public class DirectorioTelefonico {
     
-    private List<Cliente> clientes = new ArrayList<Cliente>();
+    private HashSet<Cliente> clientes = new HashSet<Cliente>();
     
     public void agregarCliente(Cliente cliente){
-        boolean exist = false;
-        for(Cliente client : clientes){
-            if(client.getNroTelefonico() == cliente.getNroTelefonico()){
-                exist = true;
-            }
-        }
-        
-        if(!exist){
             clientes.add(cliente);
-        }else{
-            System.out.println("Ya existe un cliente con este Nro Telefonico");
-        }
-          
+                    
     }
     
     public Cliente buscarCliente(int nro){
@@ -36,8 +25,8 @@ public class DirectorioTelefonico {
         return aux;
     }
     
-    public List<Cliente> buscarTelefono(String apellido){
-        List<Cliente> aux = new ArrayList<Cliente>();
+    public HashSet<Cliente> buscarTelefono(String apellido){
+        HashSet<Cliente> aux = new HashSet<Cliente>();
         for(Cliente client : clientes){
             if(client.getApellido().equals(apellido)){
                 aux.add(client);
@@ -46,8 +35,8 @@ public class DirectorioTelefonico {
         return aux;
     }
     
-    public List<Cliente> buscarClientes(String ciudad){
-        List<Cliente> aux = new ArrayList<Cliente>();
+    public HashSet<Cliente> buscarClientes(String ciudad){
+        HashSet<Cliente> aux = new HashSet<Cliente>();
         for(Cliente client : clientes){
             if(client.getCiudad().equals(ciudad)){
                 aux.add(client);
@@ -65,6 +54,7 @@ public class DirectorioTelefonico {
     public void mostrarListado(){
         for(Cliente client: clientes){
             System.out.println(client.mostrar());
+            System.out.println("");
         }
     }
     

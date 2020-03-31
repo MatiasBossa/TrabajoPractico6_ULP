@@ -80,6 +80,31 @@ public class Cliente {
     public String mostrar() {
         return "Cliente{\n " + "NroTelefonico = " + nroTelefonico + ",\n Nombre = " + nombre + ",\n Apellido = " + apellido + ",\n Ciudad = " + ciudad + ",\n Direccion = " + direccion + "\n}";
     }
+
+    @Override
+    public int hashCode() {
+        int hash = 5;
+        hash = 83 * hash + this.nroTelefonico;
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Cliente other = (Cliente) obj;
+        if (this.nroTelefonico != other.nroTelefonico) {
+            return false;
+        }
+        return true;
+    }
     
     
     
