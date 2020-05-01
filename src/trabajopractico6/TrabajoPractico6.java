@@ -5,8 +5,12 @@
  */
 package trabajopractico6;
 
-import clases.*;
-import java.util.*;
+import clases.Cliente2;
+import clases.DirectorioTelefonico2;
+import java.util.HashSet;
+import java.util.Set;
+
+
 /**
  *
  * @author matia
@@ -17,6 +21,30 @@ public class TrabajoPractico6 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        
+        Cliente2 c = new Cliente2("Matias","Bossa","San Luis","Marcelino Poblet 1273");
+        Cliente2 c1 = new Cliente2("Matias","Bossa","La Pampa","Marcelino Poblet 1273");
+        Cliente2 c24 = new Cliente2("Matias","Valverde","San Luis","Marcelino Poblet 1273");
+        Cliente2 c11 = new Cliente2("Matias","Bossa","La Pampa","Marcelino Poblet 1273");
+        DirectorioTelefonico2 dt = new DirectorioTelefonico2();
+        
+        
+        System.out.println(dt.agregarCliente(295432047, c1));
+        System.out.println(dt.agregarCliente(295432047, c));
+        System.out.println(dt.agregarCliente(295432049, c24));
+        System.out.println(dt.agregarCliente(295432043, c11));
+        
+        
+        
+       // dt.mostrarListado();
+        
+        Set<Cliente2> aux = new HashSet<>();
+        
+        aux = dt.buscarClientes("La Pampa");
+        for(Cliente2 it : aux){
+            System.out.println(it.mostrar());
+        }
+        /*
         Cliente c = new Cliente(295432047,"Matias","Bossa","San Luis","Marcelino Poblet 1273");
         Cliente c1 = new Cliente(295432047,"Matias","Bossa","La Pampa","Marcelino Poblet 1273");
         Cliente c24 = new Cliente(295432049,"Matias","Bossa","San Luis","Marcelino Poblet 1273");
@@ -50,7 +78,7 @@ public class TrabajoPractico6 {
         System.out.println("---------------------------------");
         
         dt.mostrarListado();
-        
+        */
        
     }
     
