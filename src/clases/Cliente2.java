@@ -14,7 +14,8 @@ import java.util.Objects;
 public class Cliente2 {
     
     private String nombre;
-    private String apellido;
+    private String apellido; 
+    private long dni;
     private String ciudad;
     private String direccion;
     
@@ -22,9 +23,10 @@ public class Cliente2 {
      
     }
 
-    public Cliente2(String nombre, String apellido, String ciudad, String direccion) {
+    public Cliente2(String nombre, String apellido, long dni, String ciudad, String direccion) {
         this.nombre = nombre;
         this.apellido = apellido;
+        this.dni = dni;
         this.ciudad = ciudad;
         this.direccion = direccion;
     }
@@ -32,6 +34,7 @@ public class Cliente2 {
     public Cliente2(Cliente2 client){
         this.nombre = client.getNombre();
         this.apellido = client.getApellido();
+        this.dni = client.getDni();
         this.ciudad = client.getCiudad();
         this.direccion = client.getDireccion();
     }
@@ -52,6 +55,14 @@ public class Cliente2 {
         this.apellido = apellido;
     }
 
+    public long getDni() {
+        return dni;
+    }
+
+    public void setDni(long dni) {
+        this.dni = dni;
+    }
+
     public String getCiudad() {
         return ciudad;
     }
@@ -67,18 +78,20 @@ public class Cliente2 {
     public void setDireccion(String direccion) {
         this.direccion = direccion;
     }
+    
 
     public String mostrar() {
-        return "Cliente{ " + "Nombre = " + nombre + ", Apellido = " + apellido + ", Ciudad = " + ciudad + ",  Direccion = " + direccion + " }";
+        return "Cliente{ " + "Nombre = " + nombre + ", Apellido = " + apellido +", DNI = "+ dni +", Ciudad = " + ciudad + ",  Direccion = " + direccion + " }";
     }
 
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 17 * hash + Objects.hashCode(this.nombre);
-        hash = 17 * hash + Objects.hashCode(this.apellido);
-        hash = 17 * hash + Objects.hashCode(this.ciudad);
-        hash = 17 * hash + Objects.hashCode(this.direccion);
+        hash = 53 * hash + Objects.hashCode(this.nombre);
+        hash = 53 * hash + Objects.hashCode(this.apellido);
+        hash = 53 * hash + (int) (this.dni ^ (this.dni >>> 32));
+        hash = 53 * hash + Objects.hashCode(this.ciudad);
+        hash = 53 * hash + Objects.hashCode(this.direccion);
         return hash;
     }
 
@@ -94,6 +107,9 @@ public class Cliente2 {
             return false;
         }
         final Cliente2 other = (Cliente2) obj;
+        if (this.dni != other.dni) {
+            return false;
+        }
         if (!Objects.equals(this.nombre, other.nombre)) {
             return false;
         }
@@ -108,6 +124,10 @@ public class Cliente2 {
         }
         return true;
     }
+    
+    
+
+    
 
    
 

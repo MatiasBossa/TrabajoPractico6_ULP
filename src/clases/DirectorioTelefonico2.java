@@ -47,7 +47,15 @@ public class DirectorioTelefonico2 {
         return aux;
     }
     
-    public void borrarCliente(int nro){ clientes.remove(buscarCliente(nro)); }
+    public boolean borrarCliente(long dni){
+        for(Map.Entry<Long, Cliente2> entry : clientes.entrySet()){
+            Cliente2 item = entry.getValue();
+            if(item.getDni() == dni){
+                return clientes.remove(entry.getKey(), entry.getValue());           
+            }
+        }
+        return false;
+    }
     
     
     public void mostrarListado(){

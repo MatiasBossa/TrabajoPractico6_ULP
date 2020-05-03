@@ -22,10 +22,10 @@ public class TrabajoPractico6 {
      */
     public static void main(String[] args) {
         
-        Cliente2 c = new Cliente2("Matias","Bossa","San Luis","Marcelino Poblet 1273");
-        Cliente2 c1 = new Cliente2("Matias","Bossa","La Pampa","Marcelino Poblet 1273");
-        Cliente2 c24 = new Cliente2("Matias","Valverde","San Luis","Marcelino Poblet 1273");
-        Cliente2 c11 = new Cliente2("Matias","Bossa","La Pampa","Marcelino Poblet 1273");
+        Cliente2 c = new Cliente2("Matias","Bossa",38295251,"San Luis","Marcelino Poblet 1273");
+        Cliente2 c1 = new Cliente2("Matias","Bossa",38295252,"La Pampa","Marcelino Poblet 1273");
+        Cliente2 c24 = new Cliente2("Matias","Valverde",38295253,"San Luis","Marcelino Poblet 1273");
+        Cliente2 c11 = new Cliente2("Matias","Bossa",38295254,"La Pampa","Marcelino Poblet 1273");
         DirectorioTelefonico2 dt = new DirectorioTelefonico2();
         
         
@@ -34,16 +34,20 @@ public class TrabajoPractico6 {
         System.out.println(dt.agregarCliente(295432049, c24));
         System.out.println(dt.agregarCliente(295432043, c11));
         
+
         
-        
-       // dt.mostrarListado();
-        
+        dt.mostrarListado();
+        System.out.println("");
+        System.out.println(dt.borrarCliente(38295258));
+        System.out.println("");
+        dt.mostrarListado();
+        /*
         Set<Cliente2> aux = new HashSet<>();
         
         aux = dt.buscarClientes("La Pampa");
         for(Cliente2 it : aux){
             System.out.println(it.mostrar());
-        }
+        }/*
         /*
         Cliente c = new Cliente(295432047,"Matias","Bossa","San Luis","Marcelino Poblet 1273");
         Cliente c1 = new Cliente(295432047,"Matias","Bossa","La Pampa","Marcelino Poblet 1273");
